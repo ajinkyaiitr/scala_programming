@@ -1,0 +1,381 @@
+Scala provides a nice interactive console which would give us result instantaneously. It is also called REPL - read-evaluate-print-loop. 
+To start scala console or REPL, type scala after logging into cloudxlab web console.
+-> We define a string by enclosing it in double quotes and we define a single character by enclosing it in single quotes
+##Importing a library
+-> import math._
+
+##Defining Method
+
+scala> def simpleinterest(principal:Int,rate:Double,period:Int):Double = {
+     | var interest = principal * rate * period/100
+     | return interest
+     | }
+     
+-> Since Scala is statically typed we get performance and speed over dynamic languages
+-> Since Scala and Java have a common runtime, Java libraries may be used directly in Scala code and vice versa.
+
+###Go into the editor
+nano hello_world.scala
+
+###
+object HelloWorld {
+def main(args:Array[String]) {
+println("Hello, world")
+}
+}
+##We can evaluate scala code by the way  of arguments
+scala -e 'println("Hello World!!")'
+
+Scala - Program Structure
+A Scala program can be defined as a collection of objects that communicate by invoking each other’s methods.
+
+Components of a Scala program:
+Class - A class can be defined as a template/blueprint/structure that describes the behaviors/states that are related to the class.
+Object - An object is an instance of a class and has states and behaviors. Example - A car has color, make, model as states and move, brake, as behaviors.
+Methods - A method is a behavior of a class and hence of its instantiated objects. Methods have logic and code to manipulate the data and execute the action.
+Fields - A field is state of a class and hence of its instantiated objects, which define properties of the objects. An object's state is created by the values assigned to these fields.
+Closure - A closure is a function, which returns values depending on the input to it. Input is given via values assigned to variables declared outside this function.
+Traits - A trait encapsulates method and field definitions, which can then be reused by mixing them into classes. Traits are used to define object types by specifying the signature of the supported methods.
+Variables - Variables are placeholders for any attributes which need to be calculated, manipulated or assigned to. This is similar to any other programming language.
+We will study about these building blocks in upcoming sessions.
+
+Scala - Data Types
+Scala has all the same data types as Java, with the same memory footprint and precision.
+
+You will notice that integers and strings are the most commonly used data types to represent the real world entities.
+
+Let's have a look at Scala data types.
+Byte - 8 bit signed value. Range from -128 to 127
+Short - 16 bit signed value. Range -32768 to 32767
+Int - 32 bit signed value. Range -2147483648 to 2147483647
+Long - 64 bit signed value. -9223372036854775808 to 9223372036854775807
+Float - 32 bit IEEE 754 single-precision float
+Double - 64 bit IEEE 754 double-precision float
+Char - 16 bit unsigned Unicode character. Range from U+0000 to U+FFFF
+String - A sequence of Chars
+Boolean - Either the literal true or the literal false
+Unit - Corresponds to no value
+Null - null or empty reference
+Nothing - The subtype of every other type; includes no values
+Any - The supertype of any type; any object is of type Any
+AnyRef - The supertype of any reference type
+
+###Assignment Operators
+
+=    Simple assignment                  C = A + B
++=   Add AND assignment                 C += A     (same as C = C + A )
+-=   Subtract AND assignment            C -= A     (same as C = C - A )
+*=   Multiply AND assignment            C *= A     (same as C = C * A )
+/=   Divide AND assignment              C /= A     (same as C = C / A )
+%=   Modulus AND assignment             C %= A     (same as C = C % A )
+<<=  Left shift AND assignment          C <<= 2    (same as C = C << 2)
+>>=  Right shift AND assignment         C >>= 2    (same as C = C >> 2)
+&=  Bitwise AND assignment              C &= 2     (same as C = C & 2 )
+^=  bitwise exclusive OR and assignment C ^= 2     (same as C = C ^ 2)
+|=  bitwise inclusive OR and assignment C |= 2     (same as C = C | 2)
+
+###Variables
+
+1)Variables are reserved memory locations used to store values
+2)Mutable and Immutable
+3)Mutable are defined using var keyword and their values can be changed
+4)Immutable are defined using val keyword and their values cannot be changed.In cases of threads,API,functions and classes we may not want some of the variables to change
+5)Variable type Inference - Scala can identify the type of the variable without defining
+5)Scala supports multiple assignments. If a code block or method returns a Tuple (Tuple ? Holds collection of Objects of different types), the Tuple can be assigned to a val variable.
+Example:
+val (myVar1: Int, myVar2: String) = Pair(40, "Foo")
+
+##String operations
+
+object Hello {
+  def main(args:Array[String]) {
+    var str:String = "hello"
+    println(str)
+    str = "hello all"
+    println(str)
+    str.concat("there")
+    println(str)
+  }
+}
+##Notations
+printf("The value of the float variable is " + " %f,while the value of the int variable is "+" %d , and the value of string variable is "+" %s" ,floatVar,in
+tVar,stringVar)
+Interpolation:
+This mechanism evaluates the string value in runtime.
+Strings can be interpolated or expanded using various ways.
+The s interpolator
+It allows the use of variable directly in processing a string, when you prepend ‘s’ to it.
+val name = "John"
+println(s"Hello $name") //output: Hello John
+String interpolation can also process arbitrary expressions.
+println(s"2 + 3 = ${2 + 3}") //output: 2 + 3 = 5
+
+The raw interpolator
+Output with raw option:
+println(raw"Result = \n a \n b")
+Result = \n a \n b
+
+###Scala String Methods
+
+var str:String = "My name is Ajinkya,I am 27 years old,I want to be data scientist, I will be working hard on this"
+var strarray = new Array[String](3)
+strarray = str.split(",")
+println("New string breakup  is " + strarray.deep.mkString("\n"));
+Scala - String Methods
+There are many methods to work on strings and we will discuss here a few important ones.
+
+int length() - Get string length:
+
+var str1:String = "one"
+println("Length is " + str1.length());
+String concat(String) - Concat one string to another:
+
+var str1:String = "one"
+var str2:String = str1.concat(" two")
+println("Combined string is " + str2);
+char charAt(int index) - Returns the character at the given index first index being 0:
+
+var str:String = "New York"
+println("Char at 5th index is " + str.charAt(4));
+String replace(char oldChar, char newChar) - Returns a new string after replacing all occurrences of string oldChar with string newChar:
+
+var str:String = "New York"
+println("New string is " + str.replace("York","Shire"));
+String replaceAll(char oldChar, char newChar) - Returns a new string after replacing all occurrences of string oldChar with string newChar. It is same as replace function but additionally, it can also use regular expressions (regex).
+
+var str:String = "New York 1ab2c3"
+println("New string is " + str.replaceAll("[0-9]","x"));
+To replace multiple chars, use | separator between patterns.
+
+var str:String = "New York"
+// replace all w and k with z
+println("New string is " + str.replaceAll("w|k","z"));
+String[] split(String regex) - Splits the string around matches of the given regular expression.
+
+var str:String = "New,York,Hello, There"
+var strarray = new Array[String](3)
+strarray = str.split(",")
+println("New string is " + strarray(0));
+println(strarray.deep.mkString("\n"))
+String substring(int beginIndex, int endIndex) - Returns the substring of a string ending at endIndex-1.
+
+var str:String = "NewxYorkyHello, There"
+var str1 = str.substring(4,9)
+println("New string is " + str1)
+##Function in Scala to remove Vowels##
+object PurgeVowels {
+def myPurge(str:String):String = 
+{
+  var str2 = str.replaceAll("|a|e|i|o|u|A|E|I|O|U]","")
+  return str2
+}
+}
+PurgeVowels.myPurge("New York") 
+
+###Conditional Statements
+
+##For Loop
+scala> for(x<-a)
+     | {
+     | println(x)
+     | }
+##While loop
+
+ while(x > 0)
+     | {
+     | println(x)
+     | x = x - 1
+     | }
+##IF Loop     
+  def simpleinterest(principal :Int,rate: Double,years: Int): Double = {
+     | if (principal < 0) {
+     | printf("Principal cannot be negative")
+     | return 0
+     | }
+     | var interest = principal * rate * years/100
+     | return interest
+     | }
+simpleinterest: (principal: Int, rate: Double, years: Int)Double
+scala> simpleinterest(-100,2.7,10)
+Principal cannot be negativeres0: Double = 0.0
+
+####If-Else Condition
+object Hello {
+   def main(args: Array[String]) {
+      var x = 5;
+
+      if( x < 10 ){
+         println("If condition is true");
+      } else {
+         println("If condition is false");
+      }
+   }
+}
+
+###For Loop Examples
+object Hello {
+   def main(args: Array[String]) {
+      var a = 0;
+
+      // for loop execution with a range
+      println("Loop 1 - simple loop")
+      for( a <- 1 to 5){
+         println( "Value of a: " + a );
+      }
+
+      println("Loop 2 - loop with custom incremental value")
+      for( a <- 1 to 10 by 2){
+         println( "Value of a: " + a );
+      }
+
+      println("Loop 3 - loop in reverse, decreasing order")
+      for( a <- 5 to 1 by -1){
+         println( "Value of a: " + a );
+      }
+
+      println("Loop 4 - loop using until, one iteration less than simple loop")
+      for( a <- 5 until 1 by -1){
+         println( "Value of a: " + a );
+      }
+
+      println("Loop 5 - loop over collections")
+      val myList = List(1,2,3,4,5);
+      for( a <- myList ){
+         println( "Value of a: " + a );
+      }
+
+      println("Loop 6 - loop over multiples ranges, loop within loop")
+      for( a <- 1 to 5; b <- 1 to 3){
+         println( "Value of a: " + a );
+         println( "Value of b: " + b );
+      }
+   }
+}
+
+object Greet
+{
+def greet(time:Int) = 
+{
+if(time >= 4 && time <= 12){
+println("Good Morning")
+}
+else if(time >= 12 && time <= 16){
+println("Good Afternoon")
+}
+else if(time >= 16 && time <= 20){
+println("Good Evening")
+}
+else if(time >= 20 && time <= 24){
+println("Good Night")
+}
+else if(time >= 0 && time <= 4){
+println("Good Night")
+}
+else{
+println("Please enter correct time")
+}
+}
+
+####Defined full name method
+
+class Person(val fname: String,val lname:String,val anage:Int) {
+      val firstname:String = fname;
+      val lastname:String = lname;
+      val age:Int = anage;
+      def getfullname():String = 
+        {
+      return firstname + " " + lastname
+        }
+      }
+     
+ Objects are useful in defining constants and utility methods as they are not related to any specific instance of the class. Utility methods take parameters and return values based on a calculation and transformation
+ 
+ object Hello{
+     | def message():String = {
+     | return "Hello,Goof Morning!!!"
+     | }
+     | }
+     
+    
+     }
+
+When you are calling the Car() class and passing these three strings then it will be stored inside the variables "makeOfCar", "modelOfCar", "yearOfCar". which are stored in the make, model and year respectively just like the constructor.
+var car1 = new Car("Honda", "City", 1996);
+var car2 = new Car("Honda", "Accord", 1999);
+var car3 = new Car("Honda", "Amaze", 2015);
+Then by calling the car1.make, car1.model, car1.year, you are accessing these variable and printing it.
+
+class Car(makeOfCar: String, modelOfCar: String, yearOfCar: Int) {
+   var make: String = makeOfCar;
+   var model: String = modelOfCar;
+   var year: Int = yearOfCar;
+   var color = "";
+   def changeColor(colorOfCar: String) {
+      color = colorOfCar;
+      println ("New color of car:" + color);
+   }
+}
+
+object Demo {
+   def main(args: Array[String]) {
+      var car1 = new Car("Honda", "City", 1996);
+      var car2 = new Car("Honda", "Accord", 1999);
+      var car3 = new Car("Honda", "Amaze", 2015);
+      println("Car details:" + car1.make + " " + car1.model + " " + car1.year + " " + car1.color)
+      println("Car details:" + car2.make + " " + car2.model + " " + car2.year + " " + car2.color)
+      println("Car details:" + car3.make + " " + car3.model + " " + car3.year + " " + car3.color)
+   }
+}
+
+class Student(var uname:String,var usex:Char,var ugrade:Int,var nage:Int){
+     var name:String = uname;
+     var sex:Char = usex;
+     var grade:Int = ugrade;
+     var age:Int = nage;
+     }
+     
+ ###Using constructor    
+class Student() {
+var name: String = "";
+var sex: Char = 'F';
+var grade: Int = 5;
+var age: Int = 12;
+
+def this(name_a: String) {
+this()
+this.name = name_a
+}
+
+def this(name_a: String, sex_a: Char) {
+this()
+this.name = name_a;
+this.sex = sex_a;
+}
+
+def this(name_a: String, sex_a: Char, grade_a: Int, age_a: Int) {
+this()
+this.name = name_a;
+this.sex = sex_a;
+this.grade = grade_a;
+this.age = age_a;
+}
+
+}
+
+
+##Function Representation in Scala
+
+def add(x :Int,y:Int): Int = {
+return x+y
+}
+def add(x:Int,y:Int): Int = {
+x+y
+}
+##In case of single blocks
+def add(x:Int,y:Int)= x+y
+
+def functionName ([list of parameters]) : [return type] = {
+   function body
+   return [expr]
+}                   
+
