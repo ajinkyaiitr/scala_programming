@@ -378,4 +378,131 @@ def functionName ([list of parameters]) : [return type] = {
    function body
    return [expr]
 }                   
+scala> object Calc{
+      def calSum(x:Int,y:Int):Int ={
+      var sum:Int = 0
+      for(a<-x to y){
+      sum+=a
+      }
+      return sum
+     }
+      }
+      
+  ###A closure is a function, whose return value depends on the value of one or more variables declared outside this function.
+A closure also works as a variable.
+
+     val multiplier = (i:Int) => i * 10
+     var factor = 3
+     val multiplier = (i:Int) = i * factor
+     
+     object Hello
+     {
+     def main(args: Array[String]){
+          println("multiplier(1) value = " +  processme(1) )
+          println("multiplier(2) value = " +  processme(2) )
+          }
+          var factor = 4
+          val processme = (i:Int) => i * (factor + 1)
+      }
+      ##Scala collections provide different ways to store data.
+     #The Scala collections hierarchy represents a structure of collections that can contain data in different ways.
+ 
+ @Scala Collections type:
+ 
+Traversable -->Iterable ------> Seq,Set,Map----->
+Seq----> Indexed Sequence and Linear Sequence
+---Ordered collection of data
+---Elements may or may not be indexed
+----Examples are array,list and vector
+----An array contains elements of the same type. Arrays are fixed in size and contain an ordered sequence of data. Array values are contiguous in memory,
+which means that the values are stored in consecutive memory addresses. Array elements are indexed by position
+-----Arrays have a zero-based index. To access the first element type languages(0). Arrays in Scala are mutable. We can change the values at specific indexes.
+To change "SQL" to "C++" type languages(1) = "C++"
+----List in Scala represents a linked list having elements such that each element has a value and pointer to the next element. These lists have poor performance as data could be located anywhere in the memory.
+Compared to an array, a list is very flexible, as you do not have to worry about exceeding the size of the list.
+
+
+Set -----> Sorted Set and Bit Set
+---A set in Scala is a bag of data with no duplicates. Also, the ordering is not guaranteed in sets.
+var set = Set(76,5,9,1,2)
+var nums = List(1,2,3)
+Tuples
+1)Tuples can hold elements of different data type
+2)var t = (14,45.69,"Australia")
+3)var t = Tuple3(14,45.69,"Australia")
+tuples can be accessed using a 1-based accessor for each value. To access the first element, type t._1. To access the third element type t._3
+#tuples can be deconstructed into names bound to each value in the tuple. Let us understand it
+Map -----> SortedMap
+1)Collection of key/value pairs
+2)Allows indexing values by a specific key for faster access
+3)Java HashMap,Python Dictionary
+4)Scala provides two types of maps - immutable and mutable. Please note by default, Scala uses the immutable Maps. It means that you can not change the value of a key. 
+If you want to use the mutable maps, import scala.collection.mutable.Map class explicitly.
+###A range generally is an iterable thing and in scala all the iterables are presents in "Array._" module. So you need to import it
+
+##Scala - Assessment - Declare an Iterator
+Iterator in Scala is a way to access the elements of a collection one by one. The two basic operations on an iterator are next (to access the next item and put the pointer to next to next item) and hasNext (to check whether an iterator has more items or not).
+A simple example of declaring and looping over iterator is given below:
+val it = Iterator("You", "are", "next")
+while (it.hasNext){
+    println(it.next())
+}
+An iterator is a collection of items which can be traversed using hasNext() and next() to get the next item. An iterator can be traversed only once after which items are lost.
+
+
+###Writing to a file
+
+Scala uses java.io.File class to write the files to the operating system.
+A File object is created followed by an object of PrintWriter class. The write function of PrintWriter class does the writing to the file.
+
+Below example create a new File object and writes the lines to it.
+import java.io._
+object IOTest {
+    def main(args:Array[String]) {
+        val writer = new PrintWriter(new File("new.txt"))
+        writer.write("Hello There Scala")
+        writer.close()
+    }
+}
+
+####Reading a file
+
+import scala.io.Source
+for(line <- Source.fromFile("new.txt").getLines){
+    println(line)
+}
+
+###we can use Java libraries in Scala. 
+
+
+###Cloning in Github
+SBT Build Tool
+
+[ajinkyaiimr8809@cxln5 ~]$ git clone https://github.com/singhabhinav/cloudxlab.git ~/cloudxlab
+Cloning into '/home/ajinkyaiimr8809/cloudxlab'...
+remote: Enumerating objects: 734, done.
+remote: Total 734 (delta 0), reused 0 (delta 0), pack-reused 734
+Receiving objects: 100% (734/734), 51.32 MiB | 945.00 KiB/s, done.
+Resolving deltas: 100% (313/313), done.
+Checking out files: 100% (288/288), done.
+[ajinkyaiimr8809@cxln5 ~]$ cd ~/cloudxlab
+[ajinkyaiimr8809@cxln5 cloudxlab]$ git pull origin master
+From https://github.com/singhabhinav/cloudxlab
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[ajinkyaiimr8809@cxln5 cloudxlab]$ 
+
+----Scala Build Tool SBT
+SBT is a build tool for scala and java projects
+
+[ajinkyaiimr8809@cxln5 ~]$ git clone https://github.com/singhabhinav/cloudxlab.git ~/cloudxlab
+cd ~/cloudxlab
+[ajinkyaiimr8809@cxln5 cloudxlab]$ git pull origin master
+cd scala/sbt
+vi build.sbt
+cd scala/sbt
+ls src/main/scala
+
+sbt run
+
 
